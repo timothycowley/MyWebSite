@@ -26,10 +26,9 @@
 					<hr>
 				</div>
 			</div>
-
-			<div>
-				<!--placeholder for views-->
-				<div data-ng-view></div>
+			<div class='row'>
+					<!--placeholder for views-->
+					<div data-ng-view></div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
@@ -60,36 +59,33 @@
 	<script src="js/angular-route.js"></script>
 	<script>
 		var homeApp = angular.module('homeApp', ['ngRoute']);
+
 		homeApp.config(function ($routeProvider, $locationProvider) {
 			$locationProvider.html5Mode(true);
-    		$locationProvider.hashPrefix('!');
 			$routeProvider
-				.when('/',
-				{
-					templateUrl: 'home.html'
+				.when('/', {
+			//		controller: 'mainController',
+					templateUrl: 'partials/home.html'
+				})
+				.when('/aboutme_personal',  {
+			//		controller: 'mainController',
+					templateUrl: 'partials/aboutme_personal.html'
+				})
+				.when('/aboutme_professional', {
+			//		controller: 'mainController',
+					templateUrl: 'partials/aboutme_professional.html'
+				})
+				.when('/medicare', {
+			//		controller: 'mainController',
+					templateUrl: 'partials/medicare.html'
 				})
 				.otherwise({
 					redirectTo: '/'
 				});	
 		});
+		// homeApp.controller('mainController', function($scope, $templateCache) {
+		// 	//$scope.message="controller works";
+		// })
 	</script>
-	<!--<script>
-			var homeApp = angular.module('homeApp', ['ngRoute']);
-			homeApp.config(function ($routeProvider, $locationProvider) {
-				$locationProvider.html5Mode(true);
-				$routeProvider
-					.when('/',
-					{
-
-						controller: 'SimpleController',
-						templateUrl: 'home.html'
-					})
-				.otherwise({ redirectTo: '/'});
-			});
-
-			homeApp.controller('SimpleController', function($scope) {
-				$scope.message="This is the home screen";
-			});
-	</script>-->
 	</body>
 </html>
