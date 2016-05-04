@@ -5,7 +5,7 @@ app.use(express.static(__dirname));
 
 //When using angular in HTML5 mode the following is necessary:
 app.all("/*", function(req, res) {
-	res.sendfile("index.html", {
+	res.sendFile("index.html", {
 		root: __dirname
 	});
 });
